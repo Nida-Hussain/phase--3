@@ -4,7 +4,11 @@ import { Inter } from 'next/font/google';
 import { AuthProvider } from '@/contexts/AuthContext';
 import { ThemeProvider } from '@/contexts/ThemeContext';
 
-const inter = Inter({ subsets: ['latin'] });
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap', // Use swap to avoid render-blocking
+  variable: '--font-inter' // Define as CSS variable
+});
 
 export const metadata: Metadata = {
   title: 'Todo App',
@@ -17,7 +21,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark">
+    <html lang="en" className={`${inter.variable} dark`}>
       <body className={inter.className}>
         <AuthProvider>
           <ThemeProvider>
