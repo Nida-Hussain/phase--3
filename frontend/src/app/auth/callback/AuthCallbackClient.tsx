@@ -43,11 +43,11 @@ export default function AuthCallbackClient() {
         // Optional: login context کو اپ ڈیٹ کریں اگر چاہیے
         // await login(token);  ← اگر AuthContext میں login فنکشن async ہے تو استعمال کریں
 
-        // چھوٹا delay (localStorage sync کے لیے)
-        await new Promise(resolve => setTimeout(resolve, 300));
+        // Call the login function to initialize the auth context
+        await login(token);
 
         console.log('Authentication successful, redirecting to dashboard...');
-        window.location.href = '/dashboard'; // یا router.push('/dashboard')
+        router.push('/dashboard');
       } catch (err) {
         console.error('Auth callback error:', err);
         setError('An error occurred during authentication');
