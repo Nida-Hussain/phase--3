@@ -89,7 +89,7 @@ export const AdvancedChatInterface: React.FC<AdvancedChatInterfaceProps> = ({
       const timeoutId = setTimeout(() => controller.abort(), 30000); // 30 second timeout
 
       // Use the API URL from environment, with fallback for development
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8000';
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://duaahusaainhussain-phase-three-deployed.hf.space';
 
       // Send message as query parameter instead of JSON body
       const url = new URL(`${apiUrl}/api/chat`);
@@ -147,7 +147,7 @@ export const AdvancedChatInterface: React.FC<AdvancedChatInterfaceProps> = ({
       if (error.name === 'AbortError') {
         errorMessageText = 'Request timed out. Please check your connection and try again.';
       } else if (error.message && error.message.includes('Failed to fetch')) {
-        errorMessageText = 'Unable to connect to the server. Please make sure the backend is running on http://localhost:8000.';
+        errorMessageText = 'Unable to connect to the server. Please make sure the backend is accessible at https://duaahusaainhussain-phase-three-deployed.hf.space.';
       } else if (error.message && (error.message.includes('401') || error.message.toLowerCase().includes('unauthorized'))) {
         errorMessageText = 'Authentication error. Please log out and log back in to refresh your session.';
       } else if (error.message && error.message.includes('404')) {
