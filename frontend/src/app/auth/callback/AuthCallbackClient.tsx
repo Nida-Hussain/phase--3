@@ -75,5 +75,5 @@ export default function AuthCallbackClient() {
     );
   }
 
-  return null; // loading state Suspense fallback سے handle ہو رہا ہے
+  return null; 
 }

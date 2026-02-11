@@ -106,6 +106,9 @@ export function AuthProvider({ children }: { children: ReactNode }) {
 
   const login = async (token: string) => {
     localStorage.setItem('token', token);
+    // Reset user state to ensure we know we're loading
+    setUser(null);
+    setLoading(true);
     await checkAuthStatus(); // Changed to async to ensure profile is loaded
   };
 
