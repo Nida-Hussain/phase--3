@@ -20,7 +20,7 @@ export default function LoginContent() {
     const token = searchParams.get('token');
     if (token) {
       login(token);
-      router.push('/'); // Redirect to dashboard (now root page)
+      router.push('/dashboard'); // Redirect to dashboard
     }
   }, [searchParams, router, login]);
 
@@ -40,7 +40,7 @@ export default function LoginContent() {
       if (response.ok) {
         const data = await response.json();
         login(data.access_token); // Use auth context to login
-        router.push('/'); // Redirect to dashboard (now root page)
+        router.push('/dashboard'); // Redirect to dashboard
         router.refresh(); // Optional: refresh to update state
       } else {
         const errorData = await response.json();
