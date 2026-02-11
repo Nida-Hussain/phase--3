@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "framework": "nextjs",
+  "functions": {
+    "src/**/*": {
+      "memory": 1024,
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NEXT_PUBLIC_API_URL": "https://duaahusaainhussain-phase-three-deployed.hf.space"
+  },
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Frame-Options",
+          "value": "DENY"
+        },
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        }
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/"
+    }
+  ]
+}
